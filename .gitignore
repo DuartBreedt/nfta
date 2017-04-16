@@ -10,7 +10,11 @@ locale/
 mysql/
 perl/
 php/
+<<<<<<< HEAD
+phpMyAdmin/
+=======
 phpmyadmin/
+>>>>>>> refs/remotes/origin/Progress
 security/
 sendmail/
 tmp/
@@ -36,4 +40,7 @@ xampp_start.exe
 xampp_stop.exe
 xampp-control.exe
 xampp-control.ini
+<<<<<<< HEAD
+=======
 xampp-control.log
+>>>>>>> refs/remotes/origin/Progress
