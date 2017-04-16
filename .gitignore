@@ -1,6 +1,9 @@
 apache/
 cgi-bin/
 contrib/
+htdocs/forbidden/
+htdocs/restricted/
+htdocs/xampp/
 install/
 licenses/
 locale/
