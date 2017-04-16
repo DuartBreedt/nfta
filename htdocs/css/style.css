@@ -1,3 +1,12 @@
+
+body hr {
+    padding: 0;
+    margin: 0;
+    height: 1px;
+    border: none;
+    background-color: #CCC;
+}
+
 body .banner-logo {
     padding: 20px 15px;
 }
@@ -69,26 +78,10 @@ body .navbar {
 .navbar > div{
     padding: 0 5px !important;
 }
-.navbar .nav li{
-    /*float: none !important;*/
-}
 body .dropdown .dropdown-toggle {
     font-family: 'Open Sans Condensed', sans-serif;
     text-transform: uppercase;
     font-weight: bold;
-}
-.dropdown .dropdown-menu .nav-btn {
-    width: 100%;
-    background-color: #FFF;
-    border: none;
-    font-family: 'Calibri', sans-serif;
-    font-weight: bold;
-    font-size: 16px;
-    text-align: left;
-    padding: 3px 20px;
-}
-.dropdown .dropdown-menu .nav-btn:hover {
-    background-color: #f5f5f5;
 }
 .dropdown .dropdown-menu {
     left: inherit;
@@ -97,6 +90,10 @@ body .dropdown .dropdown-toggle {
 body .dropdown .dropdown-menu > li p {
     margin: 0;
     padding: 3px 20px;
+    z-index: 2;
+    position: relative;
+    text-transform: uppercase;
+    color: #AAA;
 }
 body .dropdown .dropdown-menu > li {
     background-color: #FFF;
@@ -115,11 +112,8 @@ body .dropdown .dropdown-menu li li {
     text-decoration: none;
     list-style-type: none;
 }
-body .dropdown .dropdown-menu li ul a {
-    display: block;
-    padding-left: 35px;
-}
 body .dropdown .dropdown-menu a {
+    transition: all ease 0.2s;
     text-decoration: none;
     list-style-type: none;
     color: #333;
@@ -129,10 +123,22 @@ body .dropdown .dropdown-menu a {
 }
 
 body .dropdown .dropdown-menu a:hover {
+    transition: all ease 0.2s;
+    padding-left: 15px;
     background-color: #EEE;
 }
+body .dropdown .dropdown-menu li ul a {
+    transition: all ease 0.2s;
+    display: block;
+    padding-left: 35px;
+}
+body .dropdown .dropdown-menu li ul a:hover {
+    transition: all ease 0.2s;
+    padding-left: 30px;
+}
 body .dropdown .dropdown-menu li .active {
-    text-decoration: underline;
+    background-color: #999;
+    color: #FFF;
 }
 body .navbar .dropdown-menu {
     min-width: 200px;
