@@ -1,0 +1,139 @@
+body .banner-logo {
+    padding: 20px 15px;
+}
+
+.banner-logo img {
+    width: 100%;
+}
+
+body .banner-title {
+    margin: 20px 0;
+}
+
+body .banner-title h1{
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+body .main {
+    font-family: 'Calibri', sans-serif;
+    font-size: 18px;
+    margin: 20px;
+}
+
+body .carousel-inner {
+    width: 100%;
+}
+body .carousel-inner img {
+    width: 100%;
+}
+
+ body .carousel {
+     padding: 0;
+ }
+
+body .banner {
+    z-index: 1;
+    position: absolute;
+}
+
+body .navbar-nav li {
+    font-size: 20px;
+    font-family: 'Calibri', sans-serif;
+}
+
+body .footer {
+    padding-top: 15px;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Calibri', sans-serif;
+    background-color: #F5F5F5;
+    min-height: 50px;
+}
+
+
+/* NAVIGATION STYLES */
+body .navbar {
+    position: absolute;
+    z-index: 2;
+    right:0;
+    text-align: center;
+    padding: 0 !important;
+}
+.navbar .nav {
+    float: none !important;
+    margin-right: 0;
+}
+.navbar > div{
+    padding: 0 5px !important;
+}
+.navbar .nav li{
+    /*float: none !important;*/
+}
+body .dropdown .dropdown-toggle {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.dropdown .dropdown-menu .nav-btn {
+    width: 100%;
+    background-color: #FFF;
+    border: none;
+    font-family: 'Calibri', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: left;
+    padding: 3px 20px;
+}
+.dropdown .dropdown-menu .nav-btn:hover {
+    background-color: #f5f5f5;
+}
+.dropdown .dropdown-menu {
+    left: inherit;
+    right: 0;
+}
+body .dropdown .dropdown-menu > li p {
+    margin: 0;
+    padding: 3px 20px;
+}
+body .dropdown .dropdown-menu > li {
+    background-color: #FFF;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: 'Calibri', sans-serif;
+    font-size: 16px;
+}
+body .dropdown .dropdown-menu li ul {
+    padding-left: 0;
+}
+body .dropdown .dropdown-menu li li {
+    width: 100%;
+    background-color: #FFF;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+}
+body .dropdown .dropdown-menu li ul a {
+    display: block;
+    padding-left: 35px;
+}
+body .dropdown .dropdown-menu a {
+    text-decoration: none;
+    list-style-type: none;
+    color: #333;
+    padding: 2px 20px;
+    font-family: 'Calibri', sans-serif;
+    font-size: 16px;
+}
+
+body .dropdown .dropdown-menu a:hover {
+    background-color: #EEE;
+}
+body .dropdown .dropdown-menu li .active {
+    text-decoration: underline;
+}
+body .navbar .dropdown-menu {
+    min-width: 200px;
+}
