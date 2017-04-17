@@ -2,8 +2,8 @@
 
 ## SQL Tables
 Users: UserID, Name, Surname, Email, Cell<br/>
-Dogs: DogID, UserID, Fullname, Callname, Sex, Breed, Club<br/>
-Events: EventID, GalleryID, ResultID, Name, Description, Club, Competing(ForeignKey)<br/>
-Competing: DogID<br/>
-Galleries: ImageID, EventID, Club, Source, Caption<br/>
-Results: ResultID, EventID, DogID, Place<br/>
+Dogs: DogID, UserID (FKEY), Fullname, Callname, Sex, Breed, Club<br/>
+Events: EventID, Name, Description, Club<br/>
+Competing: DogID (FKEY), EventID (FKEY)<br/>
+Galleries: ImageID, EventID (FKey), Club, Source, Caption<br/>
+Results: ResultID, EventID (FKey), DogID (FKey), Place<br/>
