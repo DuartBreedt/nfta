@@ -1,7 +1,7 @@
 # National Field Trial Association
 
 ## SQL Tables
-Users: UserID, Name, Surname, Email, Cell<br/>
+Users: UserID, Name, Surname, Email, Cell, Admin, profile_img<br/>
 Dogs: DogID, UserID (FKEY), Fullname, Callname, Sex, Breed, Club<br/>
 Events: EventID, Name, Description, Club<br/>
 Competing: DogID (FKEY), EventID (FKEY)<br/>
