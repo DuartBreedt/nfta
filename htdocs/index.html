@@ -30,30 +30,35 @@
                 <nav class="navbar navbar-default">
                     <div class="container-fluid">
                         <ul class="nav navbar-nav">
+                            <li class="message-box-container"></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-pencil"></span> Register
                                 </a>
                                 <div class="dropdown-menu col-md-12 col-lg-12">
                                     <form name="registerForm" action="register.php" method="post">
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <label for="fname">First name:</label>
-                                            <input type="text" class="form-control" name="fname" id="fname" placeholder="John"/>
+                                            <label for="firstname">First name:</label>
+                                            <input type="text" class="form-control" name="firstname" id="firstname" placeholder="John"/>
                                         </div>
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <label for="lname">Last name:</label>
-                                            <input type="text" class="form-control" name="lname" id="lname" placeholder="Doe"/>
+                                            <label for="lastname">Last name:</label>
+                                            <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Doe"/>
                                         </div>
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <label for="email1">Email address:</label>
-                                            <input type="email" class="form-control" name="email1" id="email1" placeholder="john.doe@gmail.com"/>
+                                            <label for="email">Email address:</label>
+                                            <input type="email" class="form-control" name="email" id="email" placeholder="john.doe@gmail.com"/>
                                         </div>
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <label for="pass1">Create password:</label>
-                                            <input type="password" class="form-control" name="pass1" id="pass1" placeholder="********"/>
+                                            <label for="cell">Cellphone:</label>
+                                            <input type="text" class="form-control" name="cell" id="cell" placeholder="0787654321"/>
                                         </div>
                                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <label for="pass2">Confirm password:</label>
-                                            <input type="password" class="form-control" name="pass2" id="pass2" placeholder="********"/>
+                                            <label for="password">Create password:</label>
+                                            <input type="password" class="form-control" name="password" id="password" placeholder="********"/>
+                                        </div>
+                                        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <label for="confirm-password">Confirm password:</label>
+                                            <input type="password" class="form-control" name="confirm-password" id="confirm-password" placeholder="********"/>
                                         </div>
                                         <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                             <input type="submit" value="Register" class="btn btn-default"  />
@@ -78,10 +83,10 @@
                                             </div>
                                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                    <label for="pass">Password:</label>
+                                                    <label for="password">Password:</label>
                                                 </div>
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                    <input type="password" class="form-control" name="pass" id="pass" placeholder="********"/>
+                                                    <input type="password" class="form-control" name="password" id="password" placeholder="********"/>
                                                 </div>
                                             </div>
                                             <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3">

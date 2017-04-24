@@ -7,6 +7,10 @@ body hr {
     background-color: #CCC;
 }
 
+body .message-box {
+    margin: 0;
+}
+
 body .banner-logo {
     padding: 20px 15px;
 }
