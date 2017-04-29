@@ -2,10 +2,8 @@
 
 	include 'connect-to-database.php'; 
 	
-	$firstname = $_POST['firstname'];
-	$firstname[0] = $firstname[0].toupper();
-	$lastname = $_POST['lastname'];
-	$lastname[0] = $lastname[0].toupper();
+	$firstname = ucwords($_POST['firstname']);
+	$lastname = ucwords($_POST['lastname']);
 	$cell = $_POST['cell'];
 	$email = $_POST['email'];
 	$password = $_POST['password'];
