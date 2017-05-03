@@ -19,5 +19,4 @@ function activateLink() {
 		if($(this).attr("href") == pageName)
 			$(this).addClass("active");
 	});
-	alert("asd");
 }

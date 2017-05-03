@@ -25,10 +25,10 @@
 
                 <div class="club-banner col-xs-12 col-sm-12 col-md-12 col-lg-12"">
                     <div class="banner col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="banner-logo col-xs-2 col-sm-2 col-md-1 col-lg-1">
-                            <img src="images/logo-b.png" alt="logo image"/>
+                        <div class="banner-logo col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                            <img src="images/club-logos/wcftc.png" alt="logo image"/>
                         </div>
-                        <div class="banner-title col-xs-10 col-sm-10 col-lg-11 col-md-11">
+                        <div class="banner-title col-xs-8 col-sm-8 col-lg-10 col-md-10">
                             <h1>Western Cape Field Trial Club</h1>
                         </div>
                     </div>

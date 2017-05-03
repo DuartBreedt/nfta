@@ -1,14 +1,32 @@
 <?php 
 if (session_status() == PHP_SESSION_NONE) { session_start(); }
 
-$printString = '<nav class="main-nav navbar navbar-default">
+$printString = '<nav class="main-nav col-md navbar navbar-default">
                     <div class="container-fluid">
                         <ul class="nav navbar-nav">
-                            <li class="message-box-container"></li>';
+                            <li class="message-box-container"></li>
+                            <li class="nav-item">
+                                <div class="search-div">
+                                    <form method="post" action="search.php" class="navbar-form" role="search">
+                                        <div class="input-group">
+                                            <input type="text" class="search-query form-control" placeholder="Search" name="query">
+                                            <div class="input-group-btn">
+                                                <button class="btn search-btn btn-orange btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                            </div>
+                                        </div>
+                                        <div class="search-results">
+                                            <ul class="list-group"></ul>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>';
 
 if(isset($_SESSION['userid'])) {
     $printString .= '<li class="nav-item">
-                        <a href="logout.php"><span class="glyphicon glyphicon-user"></span> Logout</a>
+                        <a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="profile.php"><span class="glyphicon glyphicon-user"></span> Profile</a>
                     </li>';
 } else {
     $printString .= '<li class="dropdown nav-item">
@@ -88,6 +106,7 @@ $printString .= '<li class="dropdown nav-item">
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="index.php">Home</a></li>
+                        <li><a href="dogs.php">Dogs</a></li>
                         <li><a href="national-events.php">National Events</a></li>
                         <li><a href="national-results.php">National Results</a></li>
                         <li><p>Clubs</p><hr/>
