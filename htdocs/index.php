@@ -19,18 +19,20 @@
     <body>
         <div class="container-fluid">
             <div class="row">
+                
+
+
+                <!-- MAIN NAVIGATION BAR -->
+                <?php include "navigation.php"; ?>
+
                 <div class="banner col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="banner-logo col-xs-2 col-sm-2 col-md-1 col-lg-1">
-                        <img src="images/logo-b.png" alt="logo image"/>
+                        <img src="images/logo-w.png" alt="logo image"/>
                     </div>
                     <div class="banner-title col-xs-10 col-sm-10 col-lg-11 col-md-11">
                         <h1>The National Field Trial Association</h1>
                     </div>
                 </div>
-
-
-                <!-- MAIN NAVIGATION BAR -->
-                <?php include "navigation.php"; ?>
 
                 <!-- IMAGE CAROUSEL -->
                 <div id="myCarousel" class="carousel slide col-xs-12 col-sm-12 col-md-12 col-lg-12" data-ride="carousel">
