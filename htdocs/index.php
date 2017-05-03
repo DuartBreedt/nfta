@@ -19,8 +19,6 @@
     <body>
         <div class="container-fluid">
             <div class="row">
-                
-
 
                 <!-- MAIN NAVIGATION BAR -->
                 <?php include "navigation.php"; ?>

@@ -6,7 +6,7 @@
 		header("Location:index.php");
 	else {
 		session_regenerate_id ();
-		include 'connect-to-database.php';
+		include 'phpEngine.php';
 	}
 ?>
 <!DOCTYPE html>
