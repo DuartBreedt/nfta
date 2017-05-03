@@ -1,39 +1,21 @@
 <?php
 
-	include 'connect-to-database.php'; 
+	include 'phpEngine.php';
 	
 	$firstname = ucwords($_POST['firstname']);
 	$lastname = ucwords($_POST['lastname']);
 	$cell = $_POST['cell'];
 	$email = $_POST['email'];
 	$password = $_POST['password'];
+	$club = $_POST['club'];
+	$imgUrl = 'images/users/default-profile.png';
 
-	$sql =	"SELECT * FROM $usersTbl WHERE
-			email='".$email."'";
-	$result = mysqli_query($conn, $sql);
-
-	if(mysqli_num_rows($result) > 0){
+	if(isUser($email)){
 		echo "<div class='message-box alert alert-danger'><strong>Failed!</strong> This Email Already Exists.</div>";
 	} else {
-
-		$sql = "INSERT INTO $usersTbl(firstname, lastname, password, email, cell, profile_img) VALUES('".$firstname."', '".$lastname."', '".$password."', '".$email."', '".$cell."','images/users/default-profile.png')";
-
-		if(mysqli_query($conn, $sql)){
-			$sql =	"SELECT * FROM $usersTbl WHERE
-			email='".$email."'";
-
-			$result = mysqli_query($conn, $sql);
-			$ass = mysqli_fetch_assoc($result);
-
-			$_SESSION['userid'] = $ass["user_id"];
-			$_SESSION['firstname'] = $ass["firstname"];
-			
-		} else{
-			echo "<div class='message-box alert alert-danger'><strong>Failed!</strong> An error occured. Send the following message to your club administrator:<br/>". mysqli_error($conn)."</div>";
-		}
+		register($firstname, $lastname, $password, $email, $cell, $imgUrl, $club);
+		initializeSession($email);
 	}
-
-	mysqli_close($conn);
 
 	header('Location: profile.php');
 	
