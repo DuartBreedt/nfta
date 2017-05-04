@@ -23,7 +23,7 @@ $printString = '<nav class="main-nav col-md navbar navbar-default">
 
 if(isset($_SESSION['userid'])) {
     $printString .= '<li class="nav-item">
-                        <a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                        <a href="logout.php" id="logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
                     </li>
                     <li class="nav-item">
                         <a href="profile.php"><span class="glyphicon glyphicon-user"></span> Profile</a>
@@ -33,7 +33,7 @@ if(isset($_SESSION['userid'])) {
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-pencil"></span> Register
                         </a>
                         <div class="dropdown-menu row">
-                            <form name="registerForm" action="register.php" method="post">
+                            <form name="registerForm" id="registerForm" action="register.php" method="post">
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <label for="firstname">First name:</label>
                                     <input type="text" required class="form-control" name="firstname" id="firstname" placeholder="John"/>
@@ -43,8 +43,8 @@ if(isset($_SESSION['userid'])) {
                                     <input type="text" required class="form-control" name="lastname" id="lastname" placeholder="Doe"/>
                                 </div>
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <label for="email">Email address:</label>
-                                    <input type="email" required class="form-control" name="email" id="email" placeholder="john.doe@gmail.com"/>
+                                    <label for="reg-email">Email address:</label>
+                                    <input type="email" required class="form-control" name="reg-email" id="reg-email" placeholder="john.doe@gmail.com"/>
                                 </div>
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <label for="cell">Cellphone:</label>
@@ -61,8 +61,8 @@ if(isset($_SESSION['userid'])) {
                                     </select>
                                 </div>
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <label for="password">Create password:</label>
-                                    <input type="password" required class="form-control" name="password" id="password" placeholder="********"/>
+                                    <label for="reg-password">Create password:</label>
+                                    <input type="password" required class="form-control" name="reg-password" id="reg-password" placeholder="********"/>
                                 </div>
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <label for="confirm-password">Confirm password:</label>
@@ -79,15 +79,15 @@ if(isset($_SESSION['userid'])) {
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Login
                         </a>
                         <div class="dropdown-menu row">
-                            <form action="login.php" method="post" name="loginForm">
+                            <form action="login.php" method="post" name="loginForm" id="loginForm">
                                 <div class="leftAlign">
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <label for="email">Email address:</label>
-                                        <input type="email" class="form-control" required name="email" id="email" placeholder="john.doe@gmail.com"/>
+                                        <label for="log-email">Email address:</label>
+                                        <input type="email" class="form-control" required name="log-email" id="log-email" placeholder="john.doe@gmail.com"/>
                                     </div>
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <label for="password">Password:</label>
-                                        <input type="password" class="form-control" required name="password" id="password" placeholder="********"/>
+                                        <label for="log-password">Password:</label>
+                                        <input type="password" class="form-control" required name="log-password" id="log-password" placeholder="********"/>
                                     </div>
                                     <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                         <input type="submit" value="Log in" class="btn btn-default" />

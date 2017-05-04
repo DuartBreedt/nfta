@@ -16,7 +16,5 @@
 		register($firstname, $lastname, $password, $email, $cell, $imgUrl, $club);
 		initializeSession($email);
 	}
-
-	header('Location: profile.php');
 	
 ?>

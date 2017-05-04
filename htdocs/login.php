@@ -7,7 +7,8 @@
 
 	if (!login($emailVar, $passwordVar))
 		echo "<div class='message-box alert alert-danger'><strong>Failed!</strong> User Doesn't Exist. Please register first<br/>If you are already registered ensure you typed your Email and Password correctly<br/>If this problem persists contact your club administrator</div>";
-
-	header('Location: profile.php');
+	
+	// header('Location: profile.php');
+	// header('Location: '.$_SERVER['REQUEST_URI']);
 
 ?>
