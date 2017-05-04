@@ -7,6 +7,10 @@ body hr {
     background-color: #CCC;
 }
 
+a, span, button {
+    transition: all ease 0.2s;
+}
+
 body .message-box {
     margin: 0;
 }
@@ -28,7 +32,7 @@ body .banner-title h1 {
     text-transform: uppercase;
     font-size: 40px;
     font-weight: bold;
-    color: #FAFAFA;
+    color: #FFF;
 }
 
 body .main {
@@ -129,17 +133,17 @@ body .main-nav .nav .dropdown .dropdown-menu a {
     font-size: 16px;
 }
 
-body .main-nav .nav .dropdown .dropdown-menu a:hover {
+body .main-nav .nav .dropdown .dropdown-menu a:hover, body .main-nav .nav .dropdown .dropdown-menu a:active {
     transition: all ease 0.2s;
     padding-left: 15px;
-    background-color: #f6ce95; 
+    background-color: #F6CE95; 
 }
 body .main-nav .nav .dropdown .dropdown-menu li ul a {
     transition: all ease 0.2s;
     display: block;
     padding-left: 35px;
 }
-body .main-nav .nav .dropdown .dropdown-menu li ul a:hover {
+body .main-nav .nav .dropdown .dropdown-menu li ul a:hover, body .main-nav .nav .dropdown .dropdown-menu li ul a:active {
     transition: all ease 0.2s;
     padding-left: 30px;
 }
@@ -160,7 +164,7 @@ body .profile-banner {
     background-color: #f0ad4e;
 }
 body .profile-banner h1 {
-    color: #EEE;
+    color: #FFF;
 }
 
 body .profile-nav nav {
@@ -228,6 +232,18 @@ body .heading-div {
     width: 100%;
 }
 
+body .club-nav .navbar .nav a:hover, body .club-nav .navbar .nav a:active {
+    transition: all ease 0.2s;
+    color: #FFF;
+    background-color: #F6CE95;
+}
+
+body .club-nav .navbar .nav .active a {
+    color: #FFF;
+    background-color: #F0AD4E;
+}
+
+
 body .club-nav li {
     text-align: center;
 }
@@ -235,3 +251,76 @@ body .club-nav li {
 body .club-nav .navbar {
     margin: 0;
 }
+
+body .list-event-item a {
+    text-decoration: none;
+    color: #222;
+    display: block;
+    padding: 10px 15px;
+}
+
+body .list-event-item a:hover, body .list-event-item a:active {
+    transition: all ease 0.2s;
+    color: #FFF;
+    background-color: #F6CE95;
+}
+
+body .list-event-item a:hover span, body .list-event-item a:active span {
+    transition: all ease 0.2s;
+    color: #F0AD4E;
+}
+
+body .list-event-item {
+    padding: 0;
+}
+body .list-event-item a p:nth-child(0) {
+    margin-left: 0;
+}
+body .list-event-item a p {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+body .list-event-item span {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #AAA;
+}
+
+body #loading {
+    text-align: center;
+    padding: 50px 0;
+}
+
+body .event-group {
+    margin-top: 50px;
+}
+
+body .event-description {
+    max-width: 75%;
+    display: inline-block;
+}
+
+body .event-main h3 {
+    text-align: left;
+}
+
+body .event-main {
+    margin-top: 50px;
+    text-align: center;
+}
+body .btn-custom {
+    font-family: 'Calibri', sans-serif;
+    background-color: #FFF;
+    color: #F0AD4E;
+    border: 2px solid #FFF;
+ }
+
+ body .btn-custom:hover,  body .btn-custom:active {
+    transition: all ease 0.2s;
+    font-family: 'Calibri', sans-serif;
+    background-color: rgba(0,0,0,0);
+    font-weight: bold;
+    color: #FFF;
+    border: 2px solid #FFF;
+ }

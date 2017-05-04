@@ -23,6 +23,7 @@
         <link rel="stylesheet" href="css/style.css"/>
         <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
         <script src="js/global.js"></script>
+        <script src="js/navigation.js"></script>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
