@@ -14,6 +14,7 @@
 	$resultsTbl = "resultsTable";
 	$dogsTbl = "dogsTable";
 	$galleriesTbl = "galleriesTable";
+	$imagesTbl = "imagesTable";
 	$competingTbl = "competingTable";
 
 	$conn = mysqli_connect($servername, $username, $password, $db);
