@@ -4,6 +4,8 @@ $(document).ready(function(){
 	$("#registerForm input[type='submit']").click(register);
 	$("#logout").click(logout);
 
+	activateLink();
+
 });
 
 function login () {
@@ -44,4 +46,23 @@ function logout () {
 		});
 
 	return false;
+}
+
+function activateLink() {
+	var pageName = window.location.href;
+	var pageNameArr = pageName.split("http://");
+	pageName = pageNameArr[1];
+
+	if(pageName.charAt(pageName.length-1) == '#') { pageName = pageName.substring(0, (pageName.length-1)); }
+	if(pageName.charAt(pageName.length-1) == '/') { pageName = pageName.substring(0, (pageName.length-1)); }
+
+	var pageNameArr = pageName.split("/");
+
+	if(pageNameArr.length == 1) { pageName = "index.php"; }
+	else { pageName = pageNameArr[pageNameArr.length-1]; }
+
+	$(".dropdown-menu li a").each(function() {
+		if($(this).attr("href") == pageName)
+			$(this).addClass("active");
+	});
 }
