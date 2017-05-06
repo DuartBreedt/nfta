@@ -28,11 +28,12 @@
         <link rel="stylesheet" href="css/style.css"/>
         <script src="js/global.js"></script>
         <script src="js/navigation.js"></script>
+        <script src="js/events.js"></script>
         <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    <body>
+    <body data-event-id=<?php echo $_GET["id"] ?>>
         <div class="container-fluid">
             <div class="row">
 
@@ -42,7 +43,7 @@
                 <div class="profile-banner">
                     <h1><span><?php echo $name ?></span></h1>
                     <?php 
-                        if(isset($_SESSION['userid'])) { echo '<button class="btn btn-default btn-custom">Register a dog</button>'; }
+                        if(isset($_SESSION['userid'])) { echo '<button class="btn btn-default btn-custom" data-toggle="modal" data-target="#registerModal">Register a dog</button>'; }
                     ?>
                 </div>
 
@@ -89,27 +90,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading"><h3>Galleries</h3></div>
                             <div class="panel-body">
-                                
-                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                                    <div class="panel panel-default">
-                                        <div class="panel-body">
-                                            <p class="event-description">
-                                                images here
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                                    <div class="panel panel-default">
-                                        <div class="panel-body">
-                                            <p class="event-description">
-                                                images here
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                <?php echo$galleries ?>
                             </div>
                         </div>
                     </div>
@@ -117,6 +98,24 @@
             </div>
             <div class="row footer">
                 <p>All Rights Reserved | 2017</p>
+            </div>
+        </div>
+        <div id="registerModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Which of your dogs should compete in this event?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <?php echo getMyDogsCompeting($club); ?>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn submit-register btn-default" data-dismiss="modal">Submit</button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </body>

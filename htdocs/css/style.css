@@ -35,11 +35,11 @@ body .banner-title h1 {
     color: #FFF;
 }
 
-body .main {
+body .main, body .club-main {
     background-color: #FFF;
     font-family: 'Calibri', sans-serif;
     font-size: 18px;
-    padding: 0 20px 20px 20px;
+    padding: 50px 20px 20px 20px;
 }
 
 body .carousel-inner {
@@ -90,10 +90,17 @@ body .main-nav > div{
     padding: 0 5px !important;
 }
 body .nav-item > a {
+    transition: all ease 0.2s;
     font-family: 'Open Sans Condensed', sans-serif;
     text-transform: uppercase;
     font-weight: bold;
 }
+
+body .nav .nav-item > a:hover {
+    transition: all ease 0.2s;
+    color: #F0AD4E;
+}
+
 body .main-nav .dropdown .dropdown-menu {
     left: inherit;
     right: 0;
@@ -149,7 +156,7 @@ body .main-nav .nav .dropdown .dropdown-menu li ul a:hover, body .main-nav .nav 
 }
 body .main-nav .nav .dropdown .dropdown-menu li .active {
     background-color: #999;
-    background-color: #f0ad4e;
+    background-color: #F0AD4E;
     color: #FFF;
 }
 body .main-nav .dropdown-menu {
@@ -161,7 +168,7 @@ body .profile-banner {
     padding-top: 100px;
     height: 300px;
     text-align: center;
-    background-color: #f0ad4e;
+    background-color: #F0AD4E;
 }
 body .profile-banner h1 {
     color: #FFF;
@@ -252,36 +259,36 @@ body .club-nav .navbar {
     margin: 0;
 }
 
-body .list-event-item a {
+body .club-main .list-group-item a {
     text-decoration: none;
     color: #222;
     display: block;
     padding: 10px 15px;
 }
 
-body .list-event-item a:hover, body .list-event-item a:active {
+body .club-main .list-group-item a:hover, body .club-main .list-group-item a:active {
     transition: all ease 0.2s;
     color: #FFF;
     background-color: #F6CE95;
 }
 
-body .list-event-item a:hover span, body .list-event-item a:active span {
+body .club-main .list-group-item a:hover span, body .club-main .list-group-item a:active span {
     transition: all ease 0.2s;
     color: #F0AD4E;
 }
 
-body .list-event-item {
+body .club-main .list-group-item {
     padding: 0;
 }
-body .list-event-item a p:nth-child(0) {
+body .club-main .list-group-item a p:nth-child(0) {
     margin-left: 0;
 }
-body .list-event-item a p {
+body .club-main .list-group-item a p {
     display: inline-block;
     margin-left: 10px;
 }
 
-body .list-event-item span {
+body .club-main .list-group-item span {
     text-transform: uppercase;
     font-size: 14px;
     color: #AAA;
@@ -292,13 +299,10 @@ body #loading {
     padding: 50px 0;
 }
 
-body .event-group {
-    margin-top: 50px;
-}
-
 body .event-description {
     max-width: 75%;
     display: inline-block;
+    text-decoration: none;
 }
 
 body .event-main h3 {
@@ -314,13 +318,38 @@ body .btn-custom {
     background-color: #FFF;
     color: #F0AD4E;
     border: 2px solid #FFF;
- }
+}
 
- body .btn-custom:hover,  body .btn-custom:active {
+body .btn-custom:hover,  body .btn-custom:active {
     transition: all ease 0.2s;
     font-family: 'Calibri', sans-serif;
     background-color: rgba(0,0,0,0);
     font-weight: bold;
     color: #FFF;
     border: 2px solid #FFF;
- }
+}
+
+body .empty-page-message {
+    margin: 50px 0px;
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+}
+
+body .gallery-window .panel .panel-heading { 
+    transition: all ease 0.2s; 
+    font-size: 20px;
+}
+body .gallery-window .panel { 
+    transition: all ease 0.2s;
+    font-size: 16px;
+}
+body .gallery-window .panel:hover {
+    transition: all ease 0.2s;
+    box-shadow: 4px 4px 10px -5px #000;
+    margin: -5px 5px 25px -5px;
+}
+body .gallery-window {
+    color: #111;
+    text-decoration: none;
+}

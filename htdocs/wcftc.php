@@ -1,3 +1,4 @@
+<?php include "phpEngine.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -44,7 +45,6 @@
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="wcftc.php" id="home-link">Club Home</a></li>
                             <li><a href="events.php" id="events-link">Events</a></li>
-                            <li><a href="results.php" id="results-link">Results</a></li>
                             <li><a href="galleries.php" id="galleries-link">Galleries</a></li>
                             <li><a href="members.php" id="members-link">Members</a></li>
                         </ul>
@@ -54,7 +54,7 @@
             <div id="loading" style="display:none;">
                 <img src="images/ajax-loader.gif" alt="Loading" />
             </div>
-            <div class="row main">
+            <div class="row club-main club-home">
                 <h2>Summary</h2>
                 <hr class="hr-spacer" />
                     <p>
@@ -67,6 +67,9 @@
                         Various updates and revisions to the Constitution, Trial Conduct Regulations and Rules for Judging have been made over the years, notably 1971, 1978, 1991, 1999 and 2007. The primary objective of the National Field Trial Association is to promote and encourage the sport of field trialling in South Africa.
                     </p>
             </div>
+            <div class="row club-main club-events"><?php echo getEventsOfClub("wcftc"); ?></div>
+            <div class="row club-main club-galleries"> <?php echo getGalleriesOfClub("wcftc"); ?></div>
+            <div class="row club-main club-members"><?php echo getMembersOfClub("wcftc"); ?></div> 
             <div class="row footer">
                 <p>All Rights Reserved | 2017</p>
             </div>
