@@ -10,7 +10,7 @@ locale/
 mysql/
 perl/
 php/
-phpmyadmin/
+phpMyAdmin/
 security/
 sendmail/
 tmp/
