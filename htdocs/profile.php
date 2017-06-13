@@ -1,7 +1,7 @@
 <?php
-	
+
 	if (session_status() == PHP_SESSION_NONE) {session_start();}
-	
+
 	if(!isset($_SESSION['userid']))
 		header("Location:index.php");
 	else {
@@ -38,7 +38,7 @@
 			<div class="profile-body row">
 				<div class="my-dogs col-xs-12 col-sm-12 col-md-4 col-lg-4">
 					<div class="panel panel-default card-box">
-						<h2>My Dogs</h2>
+						<h2>My Dogs <a href="#" class="btn btn-default btn-orange">Add a new dog</a></h2>
 						<hr/>
 						<p>A list of all your dogs</p>
 						<div>
