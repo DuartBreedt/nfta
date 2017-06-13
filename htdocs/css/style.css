@@ -7,6 +7,14 @@ body hr {
     background-color: #CCC;
 }
 
+.error-body {
+  text-align: center;
+}
+
+.error-body .btn {
+  font-size: 24px;
+}
+
 a, span, button {
     transition: all ease 0.2s;
 }
@@ -265,8 +273,7 @@ body .list-group {
 body .list-custom-item a {
     text-decoration: none;
     color: #222;
-    display: inline-block;
-    width: 100%;
+    display: block;
     padding: 10px 15px;
 }
 
@@ -284,13 +291,13 @@ body .list-custom-item a:hover span, body .list-custom-item a:active span {
 body .list-custom-item {
     padding: 0;
 }
-/*body .list-custom-item a p:nth-child(0) {
+body .list-custom-item a p:nth-child(0) {
     margin-left: 0;
 }
 body .list-custom-item a p {
     display: inline-block;
     margin-left: 10px;
-}*/
+}
 
 body .list-custom-item span {
     text-transform: uppercase;

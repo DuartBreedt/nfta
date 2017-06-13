@@ -61,10 +61,8 @@
 						<h2>My Results</h2>
 						<hr/>
 						<p>The results of the events your dogs have participated in</p>
-						<div>
-							<ul class="list-group">
-								<li class="list-group-item">May 2017 stuff</li>
-							</ul>
+						<div class="empty-page-message">
+							<p>No results found...</p>
 						</div>
 					</div>
 				</div>
