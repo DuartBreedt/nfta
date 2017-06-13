@@ -330,4 +330,26 @@
 		if($retStr == "") { return "<p class='empty-page-message'>No dogs found...</p>"; }
 		else { return '<ul class="list-enroll list-group">'.$retStr.'</ul>'; }
 	}
+
+
+	function getUserEvents() {
+		$retStr = "";
+
+		$usersTbl = $GLOBALS['usersTbl'];
+		$eventsTbl = $GLOBALS['eventsTbl'];
+		$competingTbl = $GLOBALS['competingTbl'];
+
+		$sql = "SELECT * FROM $competingTbl INNER JOIN $usersTbl ON $competingTbl.user_id = $usersTbl.user_id
+											INNER JOIN $eventsTbl ON $competingTbl.event_id = $eventsTbl.event_id";
+
+		if($result = $GLOBALS["conn"]->query($sql)) {
+
+			while($ass = $result ->fetch_assoc()) {
+				$retStr .= "<li class='list-custom-item list-group-item'><a href='event.php?id=".$ass["event_id"]."'><p><span>NAME: </span> ".$ass["name"]." <span>DATE: </span> ".$ass["date"]."<br /> <span>DESCRIPTION: </span> ".$ass["description"]."</p></a></li>";
+			}
+
+		}
+		if($retStr == "") { return "<p class='empty-page-message'>No events found...</p>"; }
+		else { return '<ul class="list-enroll list-group">'.$retStr.'</ul>'; }
+	}
 ?>

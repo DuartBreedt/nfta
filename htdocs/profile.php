@@ -52,9 +52,7 @@
 						<hr/>
 						<p>Events your dogs have participated in</p>
 						<div>
-							<ul class="list-group">
-								<li class="list-group-item">That thing that you did</li>
-							</ul>
+							<?php echo getUserEvents(); ?>
 						</div>
 					</div>
 				</div>
