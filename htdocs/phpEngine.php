@@ -84,7 +84,7 @@
 		$retStr = "";
 
 		while ($stmt->fetch()) {
-			$retStr .= "<li class='list-custom-item list-group-item'><a href='event.php?id=".$eventid."'><p><span>NAME:</span> ".$name."</p><p><span>DESCRIPTION:</span> ".$desc."</p><p><span>DATE:</span> ".date("d M Y", strtotime($date))."</p></a></li>";
+			$retStr .= "<li class='list-custom-item list-group-item'><a href='event.php?id=".$eventid."'><div class='col-lg-4'><span>NAME:</span> ".$name."</div></p><p><div class='col-lg-4'><span>DESCRIPTION:</span> ".$desc."</div></p><p><div class='col-lg-4'><span>DATE:</span> ".date("d M Y", strtotime($date))."</div></a></li>";
 		}
 
 		$stmt->close();
@@ -137,7 +137,7 @@
 		$retStr = "";
 
 		while ($stmt->fetch())
-			$retStr .= "<li class='list-custom-item list-group-item'><a href='viewProfile.php?id=".$userid."'><p><span>NAME:</span> ".$firstname." ".$lastname."</p></a></li>";
+			$retStr .= "<li class='list-custom-item list-group-item'><a href='viewProfile.php?id=".$userid."'><div class='col-lg-12'><span>NAME:</span> ".$firstname." ".$lastname."</div></a></li>";
 
 		$stmt->close();
 
@@ -183,7 +183,7 @@
 				$dogid = $ass["dog_id"];
                 $fullname = $ass["fullname"];
                 $owner = $ass["firstname"]." ".$ass["lastname"];
-				$retStr .= "<li class='list-custom-item list-group-item'><a href='viewDog.php?id=".$dogid."'><p><span>NAME: </span> ".$fullname." <span>OWNER: </span> ".$owner."</p></a></li>";
+				$retStr .= "<li class='list-custom-item list-group-item'><a href='viewDog.php?id=".$dogid."'><div class='col-lg-6'><span>NAME: </span> ".$fullname."</div><div class='col-lg-6'><span>OWNER: </span> ".$owner."</div></a></li>";
 			}
 
 		}
@@ -207,7 +207,7 @@
 				$fullname = $ass["fullname"];
 				$club = $ass["club"];
 				$owner = $ass["firstname"]." ".$ass["lastname"];
-				$retStr .= "<li class='list-custom-item list-group-item'><a href='viewDog.php?id=".$dogid."'><p><span>NAME: </span> ".$fullname."<span>CLUB: </span> ".$club."<span>OWNER: </span> ".$owner."</p></a></li>";
+				$retStr .= "<li class='list-custom-item list-group-item'><a href='viewDog.php?id=".$dogid."'><div class='col-lg-4'><span>NAME: </span> ".$fullname."</div><div class='col-lg-4'><span>CLUB: </span> ".$club."</div><div class='col-lg-4'><span>OWNER: </span> ".$owner."</div></a></li>";
 			}
 
 		}
@@ -321,13 +321,35 @@
 
 		while ($stmt->fetch()) {
 
-			$retStr .= "<li class='list-custom-item list-group-item'><a href='viewDog.php?id=".$dogid."'><p><span>NAME: </span> ".$name." <span>SEX: </span> ".$sex." <span>BREED: </span> ".$breed."</p></a></li>";
+			$retStr .= "<li class='list-custom-item list-group-item'><a href='viewDog.php?id=".$dogid."'><div class='col-lg-4'><span>NAME: </span> ".$name." </div><div class='col-lg-4'><span>SEX: </span> ".$sex."</div><div class='col-lg-4'><span>BREED: </span> ".$breed."</div></a></li>";
 
 		}
 
 		$stmt->close();
 
 		if($retStr == "") { return "<p class='empty-page-message'>No dogs found...</p>"; }
+		else { return '<ul class="list-enroll list-group">'.$retStr.'</ul>'; }
+	}
+
+
+	function getUserEvents() {
+		$retStr = "";
+
+		$usersTbl = $GLOBALS['usersTbl'];
+		$eventsTbl = $GLOBALS['eventsTbl'];
+		$competingTbl = $GLOBALS['competingTbl'];
+
+		$sql = "SELECT * FROM $competingTbl INNER JOIN $usersTbl ON $competingTbl.user_id = $usersTbl.user_id
+											INNER JOIN $eventsTbl ON $competingTbl.event_id = $eventsTbl.event_id";
+
+		if($result = $GLOBALS["conn"]->query($sql)) {
+
+			while($ass = $result ->fetch_assoc()) {
+				$retStr .= "<li class='list-custom-item list-group-item'><a href='event.php?id=".$ass["event_id"]."'><div class='col-lg-6'><span>NAME: </span> ".$ass["name"]." </div><div class='col-lg-6'><span>DATE: </span> ".$ass["date"]."</div><div class='col-lg-12'><span>DESCRIPTION: </span> ".$ass["description"]."</div></a></li>";
+			}
+
+		}
+		if($retStr == "") { return "<p class='empty-page-message'>No events found...</p>"; }
 		else { return '<ul class="list-enroll list-group">'.$retStr.'</ul>'; }
 	}
 ?>
