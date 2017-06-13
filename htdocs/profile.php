@@ -42,17 +42,7 @@
 						<hr/>
 						<p>A list of all your dogs</p>
 						<div>
-							<ul class="list-group">
-								<li class="list-group-item"><a href="#">Doggo</a></li>
-								<li class="list-group-item">Doggo</li>
-								<li class="list-group-item">Doggo</li>
-								<li class="list-group-item">Doggo</li>
-								<li class="list-group-item">Doggo</li>
-								<li class="list-group-item">Doggo</li>
-								<li class="list-group-item">Doggo</li>
-								<li class="list-group-item">Doggo</li>
-								<li class="list-group-item">Doggo</li>
-							</ul>
+							<?php echo getUserDogs(); ?>
 						</div>
 					</div>
 				</div>
