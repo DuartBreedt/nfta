@@ -180,12 +180,15 @@
 		if($result = $GLOBALS["conn"]->query($sql)) {
 
 			while($ass = $result ->fetch_assoc()) {
-				$retStr .= $ass["fullname"]." ".$ass["callname"]." ".$ass["firstname"]." ".$ass["name"]." ".$ass["club"]." ".$ass["cell"]."\n";
+				$dogid = $ass["dog_id"];
+                $fullname = $ass["fullname"];
+                $owner = $ass["firstname"]." ".$ass["lastname"];
+				$retStr .= "<li class='list-member-item list-group-item'><a href='viewDog.php?id=".$dogid."'><p><span>NAME: </span> ".$fullname." <span>OWNER: </span> ".$owner."</p></a></li>";
 			}
 
 		}
 		if($retStr == "") { return "<p class='empty-page-message'>No dogs found...</p>"; }
-		else { return $retStr; }
+		else { return $retStr = "<ul class='list-group event-group'>".$retStr."</ul>"; }
 	}
 
 	function getAllDogs() {
@@ -303,5 +306,27 @@
 		$stmt->close();
 	}
 
+	function getUserDogs() {
+		$userid = $_SESSION["userid"];
+		$dogsTbl = $GLOBALS['dogsTbl'];
+		
+		$stmt = $GLOBALS["conn"]->prepare ( "SELECT dog_id,fullname,callname,sex,breed FROM $dogsTbl WHERE user_id=?" );
 
+		$stmt->bind_param( "s", $userid);
+		$stmt->execute();
+
+		$stmt->bind_result($dogid, $name, $nickname, $sex, $breed);
+
+		$retStr = "";
+
+		while ($stmt->fetch()) {
+			$retStr .= "<li class='list-member-item list-group-item'><a href='viewDog.php?id=".$dogid."'><p><span>NAME: </span> ".$name." <span>NICKNAME: </span> ".$nickname." <span>SEX: </span> ".$sex." <span>BREED: </span> ".$breed."</p></a></li>";
+
+		}
+
+		$stmt->close();
+
+		if($retStr == "") { return "<p class='empty-page-message'>No dogs found...</p>"; }
+		else { return '<ul class="list-enroll list-group">'.$retStr.'</ul>'; }
+	}
 ?>

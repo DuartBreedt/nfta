@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2017 at 07:43 PM
--- Server version: 5.6.20
--- PHP Version: 5.5.15
+-- Generation Time: Jun 13, 2017 at 09:11 PM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `nfta`
@@ -26,12 +26,12 @@ SET time_zone = "+00:00";
 -- Table structure for table `competingtable`
 --
 
-CREATE TABLE IF NOT EXISTS `competingtable` (
-`id` int(11) NOT NULL,
+CREATE TABLE `competingtable` (
+  `id` int(11) NOT NULL,
   `dog_id` int(11) NOT NULL,
   `event_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -39,8 +39,8 @@ CREATE TABLE IF NOT EXISTS `competingtable` (
 -- Table structure for table `dogstable`
 --
 
-CREATE TABLE IF NOT EXISTS `dogstable` (
-`dog_id` int(11) NOT NULL,
+CREATE TABLE `dogstable` (
+  `dog_id` int(11) NOT NULL,
   `parent_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `club` varchar(500) NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `dogstable` (
   `breed` varchar(50) NOT NULL,
   `microchip` int(11) NOT NULL,
   `dog_img` varchar(500) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=101 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `dogstable`
@@ -164,20 +164,22 @@ INSERT INTO `dogstable` (`dog_id`, `parent_id`, `user_id`, `club`, `fullname`, `
 -- Table structure for table `eventstable`
 --
 
-CREATE TABLE IF NOT EXISTS `eventstable` (
-`event_id` int(11) NOT NULL,
+CREATE TABLE `eventstable` (
+  `event_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `description` varchar(1000) NOT NULL,
   `date` date NOT NULL,
   `club` varchar(100) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `eventstable`
 --
 
 INSERT INTO `eventstable` (`event_id`, `name`, `description`, `date`, `club`) VALUES
-(1, 'Field Trial 01', 'The first field trial to be made', '2017-05-03', 'wcftc');
+(1, 'Field Trial May-17', 'Held at Tarkastad.', '2017-05-03', 'bftc'),
+(2, 'Field Trial May-17', 'Held at Swellendam.', '2017-05-09', 'wcftc'),
+(3, 'Field Trial May-17', 'Held at Stutterheim.', '2017-05-15', 'national');
 
 -- --------------------------------------------------------
 
@@ -185,13 +187,22 @@ INSERT INTO `eventstable` (`event_id`, `name`, `description`, `date`, `club`) VA
 -- Table structure for table `galleriestable`
 --
 
-CREATE TABLE IF NOT EXISTS `galleriestable` (
-`gallery_id` int(11) NOT NULL,
+CREATE TABLE `galleriestable` (
+  `gallery_id` int(11) NOT NULL,
   `event_id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `description` varchar(1000) NOT NULL,
   `club` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `galleriestable`
+--
+
+INSERT INTO `galleriestable` (`gallery_id`, `event_id`, `name`, `description`, `club`) VALUES
+(1, 1, 'Field Trial May-17', 'Photos of trial held at Tarkastad.', 'bftc'),
+(2, 2, 'Field Trial May-17', 'Photos of trial held at Swellendam.', 'wcftc'),
+(3, 3, 'Field Trial May-17', 'Photos of trial held at Stutterheim.', 'national');
 
 -- --------------------------------------------------------
 
@@ -199,13 +210,13 @@ CREATE TABLE IF NOT EXISTS `galleriestable` (
 -- Table structure for table `imagestables`
 --
 
-CREATE TABLE IF NOT EXISTS `imagestables` (
-`image_id` int(11) NOT NULL,
+CREATE TABLE `imagestables` (
+  `image_id` int(11) NOT NULL,
   `gallery_id` int(11) NOT NULL,
   `title` varchar(50) NOT NULL,
   `caption` varchar(1000) NOT NULL,
   `source` varchar(500) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -213,12 +224,12 @@ CREATE TABLE IF NOT EXISTS `imagestables` (
 -- Table structure for table `resultstable`
 --
 
-CREATE TABLE IF NOT EXISTS `resultstable` (
-`result_id` int(11) NOT NULL,
+CREATE TABLE `resultstable` (
+  `result_id` int(11) NOT NULL,
   `event_id` int(11) NOT NULL,
   `dog_id` int(11) NOT NULL,
   `place` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -226,8 +237,8 @@ CREATE TABLE IF NOT EXISTS `resultstable` (
 -- Table structure for table `userstable`
 --
 
-CREATE TABLE IF NOT EXISTS `userstable` (
-`user_id` int(11) NOT NULL,
+CREATE TABLE `userstable` (
+  `user_id` int(11) NOT NULL,
   `firstname` varchar(50) NOT NULL,
   `lastname` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -236,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `userstable` (
   `profile_img` varchar(500) NOT NULL,
   `club` varchar(500) NOT NULL,
   `admin` tinyint(1) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `userstable`
@@ -272,43 +283,52 @@ INSERT INTO `userstable` (`user_id`, `firstname`, `lastname`, `email`, `cell`, `
 -- Indexes for table `competingtable`
 --
 ALTER TABLE `competingtable`
- ADD PRIMARY KEY (`id`), ADD KEY `dog_id` (`dog_id`,`event_id`,`user_id`), ADD KEY `event_id` (`event_id`), ADD KEY `user_id` (`user_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `dog_id` (`dog_id`,`event_id`,`user_id`),
+  ADD KEY `event_id` (`event_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `dogstable`
 --
 ALTER TABLE `dogstable`
- ADD PRIMARY KEY (`dog_id`), ADD KEY `user_id` (`user_id`,`club`), ADD KEY `parent_id` (`parent_id`);
+  ADD PRIMARY KEY (`dog_id`),
+  ADD KEY `user_id` (`user_id`,`club`),
+  ADD KEY `parent_id` (`parent_id`);
 
 --
 -- Indexes for table `eventstable`
 --
 ALTER TABLE `eventstable`
- ADD PRIMARY KEY (`event_id`);
+  ADD PRIMARY KEY (`event_id`);
 
 --
 -- Indexes for table `galleriestable`
 --
 ALTER TABLE `galleriestable`
- ADD PRIMARY KEY (`gallery_id`), ADD KEY `event_id` (`event_id`);
+  ADD PRIMARY KEY (`gallery_id`),
+  ADD KEY `event_id` (`event_id`);
 
 --
 -- Indexes for table `imagestables`
 --
 ALTER TABLE `imagestables`
- ADD PRIMARY KEY (`image_id`), ADD KEY `gallery_id` (`gallery_id`);
+  ADD PRIMARY KEY (`image_id`),
+  ADD KEY `gallery_id` (`gallery_id`);
 
 --
 -- Indexes for table `resultstable`
 --
 ALTER TABLE `resultstable`
- ADD PRIMARY KEY (`result_id`), ADD KEY `event_id` (`event_id`,`dog_id`), ADD KEY `dog_id` (`dog_id`);
+  ADD PRIMARY KEY (`result_id`),
+  ADD KEY `event_id` (`event_id`,`dog_id`),
+  ADD KEY `dog_id` (`dog_id`);
 
 --
 -- Indexes for table `userstable`
 --
 ALTER TABLE `userstable`
- ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -318,37 +338,37 @@ ALTER TABLE `userstable`
 -- AUTO_INCREMENT for table `competingtable`
 --
 ALTER TABLE `competingtable`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `dogstable`
 --
 ALTER TABLE `dogstable`
-MODIFY `dog_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=101;
+  MODIFY `dog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 --
 -- AUTO_INCREMENT for table `eventstable`
 --
 ALTER TABLE `eventstable`
-MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `galleriestable`
 --
 ALTER TABLE `galleriestable`
-MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `imagestables`
 --
 ALTER TABLE `imagestables`
-MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `resultstable`
 --
 ALTER TABLE `resultstable`
-MODIFY `result_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `result_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `userstable`
 --
 ALTER TABLE `userstable`
-MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- Constraints for dumped tables
 --
@@ -357,22 +377,22 @@ MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 -- Constraints for table `competingtable`
 --
 ALTER TABLE `competingtable`
-ADD CONSTRAINT `competingtable_ibfk_1` FOREIGN KEY (`dog_id`) REFERENCES `dogstable` (`dog_id`),
-ADD CONSTRAINT `competingtable_ibfk_2` FOREIGN KEY (`event_id`) REFERENCES `eventstable` (`event_id`),
-ADD CONSTRAINT `competingtable_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `userstable` (`user_id`);
+  ADD CONSTRAINT `competingtable_ibfk_1` FOREIGN KEY (`dog_id`) REFERENCES `dogstable` (`dog_id`),
+  ADD CONSTRAINT `competingtable_ibfk_2` FOREIGN KEY (`event_id`) REFERENCES `eventstable` (`event_id`),
+  ADD CONSTRAINT `competingtable_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `userstable` (`user_id`);
 
 --
 -- Constraints for table `dogstable`
 --
 ALTER TABLE `dogstable`
-ADD CONSTRAINT `dogstable_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `userstable` (`user_id`);
+  ADD CONSTRAINT `dogstable_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `userstable` (`user_id`);
 
 --
 -- Constraints for table `resultstable`
 --
 ALTER TABLE `resultstable`
-ADD CONSTRAINT `resultstable_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `eventstable` (`event_id`),
-ADD CONSTRAINT `resultstable_ibfk_2` FOREIGN KEY (`dog_id`) REFERENCES `dogstable` (`dog_id`);
+  ADD CONSTRAINT `resultstable_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `eventstable` (`event_id`),
+  ADD CONSTRAINT `resultstable_ibfk_2` FOREIGN KEY (`dog_id`) REFERENCES `dogstable` (`dog_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
