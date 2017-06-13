@@ -108,7 +108,7 @@ $printString .= '<li class="dropdown nav-item">
                         <li><a href="index.php">Home</a></li>
                         <li><a href="dogs.php">Dogs</a></li>
                         <li><a href="national.php">Nationals</a></li>
-                        <li><a href="rankings.php">Rankings</a></li>
+                        <li><a href="#">Rankings</a></li>
                         <li><p>Clubs</p><hr/>
                             <ul>
                                 <li><a href="wcftc.php">WCFTC</a></li>

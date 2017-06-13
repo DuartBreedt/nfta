@@ -119,6 +119,7 @@
                           </ul>
                         </li>
                       </ul>
+                      <p>If you would like to effectively demo the ability to register dogs for particular events use the email address: kaleb@gmail.com and the password: Passw0rd</p>
                       <p>We regret to inform you that as of <strong>13 June 2017</strong> the developement of this website has ceased until further notice.</p>
                     </div>
                     <div class="modal-footer">
