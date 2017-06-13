@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <img src="images/banners/wcftc.jpg" alt="WCFTC image"/>
-                </div>                
+                </div>
             </div>
 
             <div class="row club-nav">
@@ -58,18 +58,18 @@
                 <h2>Summary</h2>
                 <hr class="hr-spacer" />
                     <p>
-                        The first field trial in South Africa was held on the 3rd of August 1908, under the auspices of the newly formed South African Field Trial Club. The rules, standards, registrations and judging guidelines evolved over time under the stewardship of the club, with documents such as F.J. Finch Smith's 1916 "Training of Gundogs for South Africa" and H.W. Ardler's 1938 "Judging of Field Trial Dogs" serving as valuable benchmarks.
-                        <br/><br/>
-                        The Border Field Trial Club was founded in 1945 in Cathcart, an area with a long tradition of fine wing shooting. In 1971, The Natal Gundog Club hosted their first trial, with help and support from the SAFTC. The Rhodesian Field Trial Club was very much an item on the field trial circuit at the time.
-                        <br/><br/>
-                        In 1979, the National Field Trial Association (NFTA) was formed in an attempt to bring uniformity to the sport, and hosted its first National Field Trial in the same year. The National Field Trial Association is the controlling body of field trialling in South Africa. Since then various clubs have joined the NFTA, namely the Transvaal Hunt Point and Retrieve Field Trial Club, The Highveld Field Trial Club, The Western Cape Field Trial Club, The KZN HPR Club and The Central Field Trial Club. Sadly, there have also been withdrawals, most notably The South African Field Trial Club in 2010.
-                        <br/><br/>
-                        Various updates and revisions to the Constitution, Trial Conduct Regulations and Rules for Judging have been made over the years, notably 1971, 1978, 1991, 1999 and 2007. The primary objective of the National Field Trial Association is to promote and encourage the sport of field trialling in South Africa.
+                      The Western Cape Field Trial Club is a club for Pointing Breed enthusiasts. If you own or want to own a working Pointing dog, then this is the club for you in the Western Cape!
+                      <br/><br/>
+                      We are a small club that offers a variety of field events for Pointing Breeds, which include the traditional British breed Pointers and Setters, and the Continental or HPR (Hunt, Point and Retrieve) breeds such as the German Shorthaired Pointer, German Wirehaired Pointer, Brittany, Viszla, Spinone, Weimaraner, etc. Our members come from a wide variety of backgrounds, but we all have in common our love for the dogs, birds, conservation and outdoors.
+                      <br/><br/>
+                      We hold 2 field trial competitions a year, one for the British Breeds, and one for the HPR Breeds. Field trial competitions are held on wild birds in a genuine hunting environment and format, and the dogs are judged on their ability to find and produce game for the handler. The judges look for top bird dogs with finding ability, manners and class. The HPR breeds are also judged on their retrieving abilities.
+                      <br/><br/>
+                      In addition to the field trials, we offer some training, tests and field meets. In the months preceding our field trials, we hold weekend surveys where dogs and handlers get to do the real thing in the field on wild birds.
                     </p>
             </div>
             <div class="row club-main club-events"><?php echo getEventsOfClub("wcftc"); ?></div>
             <div class="row club-main club-galleries"> <?php echo getGalleriesOfClub("wcftc"); ?></div>
-            <div class="row club-main club-members"><?php echo getMembersOfClub("wcftc"); ?></div> 
+            <div class="row club-main club-members"><?php echo getMembersOfClub("wcftc"); ?></div>
             <div class="row footer">
                 <p>All Rights Reserved | 2017</p>
             </div>
