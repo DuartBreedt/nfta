@@ -84,7 +84,7 @@
 		$retStr = "";
 
 		while ($stmt->fetch()) {
-			$retStr .= "<li class='list-custom-item list-group-item'><a href='event.php?id=".$eventid."'><div class='col-lg-4'><span>NAME:</span> ".$name."</div></p><p><div class='col-lg-4'><span>DESCRIPTION:</span> ".$desc."</div></p><p><div class='col-lg-4'><span>DATE:</span> ".date("d M Y", strtotime($date))."</div></a></li>";
+			$retStr .= "<li class='list-custom-item list-group-item'><a href='event.php?id=".$eventid."'><div class='col-lg-4'><p><span>NAME:</span> ".$name."</p></div><div class='col-lg-4'><p><span>DESCRIPTION:</span> ".$desc."</p></div><div class='col-lg-4'><p><span>DATE:</span> ".date("d M Y", strtotime($date))."</p></div></a></li>";
 		}
 
 		$stmt->close();
@@ -207,7 +207,7 @@
 				$fullname = $ass["fullname"];
 				$club = $ass["club"];
 				$owner = $ass["firstname"]." ".$ass["lastname"];
-				$retStr .= "<li class='list-custom-item list-group-item'><a href='viewDog.php?id=".$dogid."'><div class='col-lg-4'><span>NAME: </span> ".$fullname."</div><div class='col-lg-4'><span>CLUB: </span> ".$club."</div><div class='col-lg-4'><span>OWNER: </span> ".$owner."</div></a></li>";
+				$retStr .= "<li class='list-custom-item list-group-item'><a href='viewDog.php?id=".$dogid."'><div class='col-lg-4'><p><span>NAME: </span> ".$fullname."</p></div><div class='col-lg-4'><p><span>CLUB: </span> ".$club."</p></div><div class='col-lg-4'><p><span>OWNER: </span> ".$owner."</p></div></a></li>";
 			}
 
 		}
@@ -321,7 +321,7 @@
 
 		while ($stmt->fetch()) {
 
-			$retStr .= "<li class='list-custom-item list-group-item'><a href='viewDog.php?id=".$dogid."'><div class='col-lg-4'><span>NAME: </span> ".$name." </div><div class='col-lg-4'><span>SEX: </span> ".$sex."</div><div class='col-lg-4'><span>BREED: </span> ".$breed."</div></a></li>";
+			$retStr .= "<li class='list-custom-item list-group-item'><a href='viewDog.php?id=".$dogid."'><div class='col-lg-4'><p><span>NAME: </span> ".$name."</p> </div><div class='col-lg-4'><p><span>SEX: </span> ".$sex."</p></div><div class='col-lg-4'><p><span>BREED: </span> ".$breed."</p></div></a></li>";
 
 		}
 

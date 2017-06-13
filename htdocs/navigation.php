@@ -112,8 +112,8 @@ $printString .= '<li class="dropdown nav-item">
                         <li><p>Clubs</p><hr/>
                             <ul>
                                 <li><a href="wcftc.php">WCFTC</a></li>
-                                <li><a href="nftc.php">NFTC</a></li>
-                                <li><a href="tvlftc.php">TVLFTC</a></li>
+                                <li><a href="#">NFTC</a></li>
+                                <li><a href="#">TVLFTC</a></li>
                                 <li><a href="bftc.php">BFTC</a></li>
                             </ul>
                             <hr/>

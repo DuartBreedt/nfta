@@ -90,7 +90,7 @@
                       </div>
                       <p>This demo only features a partial implementation of the final website. Therefore, many features are missing.</br>The available features are as follows:</p>
                       <ul>
-                        <li>Users can registration</li>
+                        <li>Users can register</li>
                         <li>Users can login</li>
                         <li>Users can view their own profile including their dogs, events and results</li>
                         <li>Users can logout</li>
