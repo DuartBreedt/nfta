@@ -265,7 +265,8 @@ body .list-group {
 body .list-custom-item a {
     text-decoration: none;
     color: #222;
-    display: block;
+    display: inline-block;
+    width: 100%;
     padding: 10px 15px;
 }
 
@@ -283,13 +284,13 @@ body .list-custom-item a:hover span, body .list-custom-item a:active span {
 body .list-custom-item {
     padding: 0;
 }
-body .list-custom-item a p:nth-child(0) {
+/*body .list-custom-item a p:nth-child(0) {
     margin-left: 0;
 }
 body .list-custom-item a p {
     display: inline-block;
     margin-left: 10px;
-}
+}*/
 
 body .list-custom-item span {
     text-transform: uppercase;
@@ -336,7 +337,7 @@ body .btn-custom:hover,  body .btn-custom:active {
 body .btn-orange {
   transition: all ease 0.2s;
   font-family: 'Calibri', sans-serif;
-  background-color: #FFF;
+  background-color: rgba(0,0,0,0);
   color: #F0AD4E;
   border: 2px solid #F0AD4E;
 }

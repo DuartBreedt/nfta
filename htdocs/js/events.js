@@ -12,15 +12,15 @@ $(document).ready(function(){
 				location.reload();
 			});
 
-
 	});
 
-
-	$("#registerModal").on("click", ".list-enroll .list-group-item", function(){
-		if($(this).find("input").prop("checked"))
-			$(this).find("input").prop("checked", false);
-		else
-			$(this).find("input").prop("checked", true);
+	$("#registerModal").on("click", ".list-enroll .list-group-item", function(e){
+		if(!$(event.target).is('label') && !$(event.target).is(':input')) {
+			if($(this).find("input").prop("checked"))
+				$(this).find("input").prop("checked", false);
+			else
+				$(this).find("input").prop("checked", true);
+		}
 	});
 
 });

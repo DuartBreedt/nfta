@@ -31,6 +31,7 @@
                     <div class="banner-title col-xs-10 col-sm-10 col-lg-11 col-md-11">
                         <h1>The National Field Trial Association</h1>
                     </div>
+                    <button class="btn btn-default btn-custom" data-toggle="modal" data-target="#tempModal">Click Me!</button>
                 </div>
 
                 <!-- IMAGE CAROUSEL -->
@@ -56,7 +57,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row main">
             <h2>Summary</h2>
             <hr class="hr-spacer" />
@@ -72,6 +73,59 @@
             </div>
             <div class="row footer">
                 <p>All Rights Reserved | 2017</p>
+            </div>
+        </div>
+
+        <!-- TEMPORARY MODAL DELETE ON RELEASE -->
+        <div id="tempModal" class="modal fade" role="dialog">
+            <div class="modal-dialog" style="width: 80%;">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="alert alert-danger">
+                        <strong>Note:</strong> This website is for demo purposes only and does not necessary represent the final product.
+                      </div>
+                      <p>This demo only features a partial implementation of the final website. Therefore, many features are missing.</br>The available features are as follows:</p>
+                      <ul>
+                        <li>Users can registration</li>
+                        <li>Users can login</li>
+                        <li>Users can view their own profile including their dogs, events and results</li>
+                        <li>Users can logout</li>
+                        <li>Users can use the menu to navigate to:
+                          <ul>
+                            <li>Home</li>
+                            <li>Dogs</li>
+                            <li>Nationals</li>
+                            <li>WCFTC</li>
+                            <li>BFTC</li>
+                          </ul>
+                        </li>
+                        <li>Inside of a club users can navigate to:
+                          <ul>
+                            <li>Club Home</li>
+                            <li>Club Events</li>
+                            <li>Club Galleries</li>
+                            <li>Club Members</li>
+                          </ul>
+                        </li>
+                        <li>Inside of club events users can view individual events</li>
+                        <li>Inside of each event users can:
+                          <ul>
+                            <li>View information concerning the event</li>
+                            <li>Register their dogs to an event (provided they are registered and logged in)
+                          </ul>
+                        </li>
+                      </ul>
+                      <p>We regret to inform you that as of <strong>13 June 2017</strong> the developement of this website has ceased until further notice.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn orange-btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </body>
