@@ -259,39 +259,40 @@ body .club-nav .navbar {
     margin: 0;
 }
 
-body .club-main .list-group-item a {
+body .list-member-item a {
     text-decoration: none;
     color: #222;
     display: block;
     padding: 10px 15px;
 }
 
-body .club-main .list-group-item a:hover, body .club-main .list-group-item a:active {
+body .list-member-item a:hover, body .list-member-item a:active {
     transition: all ease 0.2s;
     color: #FFF;
     background-color: #F6CE95;
 }
 
-body .club-main .list-group-item a:hover span, body .club-main .list-group-item a:active span {
+body .list-member-item a:hover span, body .list-member-item a:active span {
     transition: all ease 0.2s;
     color: #F0AD4E;
 }
 
-body .club-main .list-group-item {
+body .list-member-item {
     padding: 0;
 }
-body .club-main .list-group-item a p:nth-child(0) {
+body .list-member-item a p:nth-child(0) {
     margin-left: 0;
 }
-body .club-main .list-group-item a p {
+body .list-member-item a p {
     display: inline-block;
     margin-left: 10px;
 }
 
-body .club-main .list-group-item span {
+body .list-member-item span {
     text-transform: uppercase;
     font-size: 14px;
     color: #AAA;
+    margin-left: 10px;
 }
 
 body #loading {

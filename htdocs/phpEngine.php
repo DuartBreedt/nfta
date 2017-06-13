@@ -55,7 +55,7 @@
 		$usersTbl = $GLOBALS['usersTbl'];
 		$return = false;
 		$stmt = $GLOBALS["conn"]->prepare ( "SELECT * FROM $usersTbl WHERE email=? AND password=?" );
-		$stmt->bind_param( "ss", $emailVar, $passwordVar); 
+		$stmt->bind_param( "ss", $emailVar, $passwordVar);
 		$stmt->execute();
 
 		$stmt->bind_result($userid, $firstname, $lastname, $email, $cell, $password, $image, $club, $admin);
@@ -76,7 +76,7 @@
 
 		$eventsTbl = $GLOBALS['eventsTbl'];
 		$stmt = $GLOBALS["conn"]->prepare ( "SELECT * FROM $eventsTbl WHERE club=?" );
-		$stmt->bind_param( "s", $clubVar); 
+		$stmt->bind_param( "s", $clubVar);
 		$stmt->execute();
 
 		$stmt->bind_result($eventid, $name, $desc, $date, $club);
@@ -98,7 +98,7 @@
 		$galleriesTbl = $GLOBALS['galleriesTbl'];
 		$stmt = $GLOBALS["conn"]->prepare ( "SELECT gallery_id,name,description FROM $galleriesTbl WHERE club=?" );
 
-		$stmt->bind_param( "s", $clubVar); 
+		$stmt->bind_param( "s", $clubVar);
 		$stmt->execute();
 
 		$stmt->bind_result($galleryid, $name, $desc);
@@ -129,7 +129,7 @@
 		$usersTbl = $GLOBALS['usersTbl'];
 		$stmt = $GLOBALS["conn"]->prepare ( "SELECT user_id,firstname,lastname FROM $usersTbl WHERE club=?" );
 
-		$stmt->bind_param( "s", $clubVar); 
+		$stmt->bind_param( "s", $clubVar);
 		$stmt->execute();
 
 		$stmt->bind_result($userid, $firstname, $lastname);
@@ -137,12 +137,12 @@
 		$retStr = "";
 
 		while ($stmt->fetch())
-			$retStr .= "<li class='list-member-item list-group-item'><a href='view-profile.php?id=".$userid."'><p><span>NAME:</span> ".$firstname." ".$lastname."</p></a></li>";
+			$retStr .= "<li class='list-member-item list-group-item'><a href='viewProfile.php?id=".$userid."'><p><span>NAME:</span> ".$firstname." ".$lastname."</p></a></li>";
 
 		$stmt->close();
 
 		if($retStr == "") { return "<p class='empty-page-message'>No members found...</p>"; }
-		else { return $retStr = "<ul class='list-group event-group'>".$retStr."</ul>"; }
+		else { return "<ul class='list-group event-group'>".$retStr."</ul>"; }
 
 	}
 
@@ -150,7 +150,7 @@
 
 		$eventsTbl = $GLOBALS['eventsTbl'];
 		$stmt = $GLOBALS["conn"]->prepare ( "SELECT * FROM $eventsTbl WHERE event_id=?" );
-		$stmt->bind_param( "s", $id); 
+		$stmt->bind_param( "s", $id);
 		$stmt->execute();
 		$stmt->bind_result($eventid, $name, $desc, $date, $club);
 		$stmt->fetch();
@@ -172,7 +172,7 @@
 		$eventsTbl = $GLOBALS['eventsTbl'];
 		$competingTbl = $GLOBALS['competingTbl'];
 
-		$sql = "SELECT * FROM $competingTbl INNER JOIN $dogsTbl ON $competingTbl.dog_id = $dogsTbl.dog_id 
+		$sql = "SELECT * FROM $competingTbl INNER JOIN $dogsTbl ON $competingTbl.dog_id = $dogsTbl.dog_id
 											INNER JOIN $usersTbl ON $competingTbl.user_id = $usersTbl.user_id
 											INNER JOIN $eventsTbl ON $competingTbl.event_id = $eventsTbl.event_id
 											AND $competingTbl.event_id = $eventId";
@@ -183,9 +183,33 @@
 				$retStr .= $ass["fullname"]." ".$ass["callname"]." ".$ass["firstname"]." ".$ass["name"]." ".$ass["club"]." ".$ass["cell"]."\n";
 			}
 
-		} 
+		}
 		if($retStr == "") { return "<p class='empty-page-message'>No dogs found...</p>"; }
 		else { return $retStr; }
+	}
+
+	function getAllDogs() {
+
+		$retStr = "";
+
+		$dogsTbl = $GLOBALS['dogsTbl'];
+		$usersTbl = $GLOBALS['usersTbl'];
+
+		$sql = "SELECT * FROM $dogsTbl	INNER JOIN $usersTbl ON $dogsTbl.user_id = $usersTbl.user_id ORDER BY `fullname` ASC";
+
+		if($result = $GLOBALS["conn"]->query($sql)) {
+
+			while($ass = $result ->fetch_assoc()) {
+				$dogid = $ass["dog_id"];
+				$fullname = $ass["fullname"];
+				$club = $ass["club"];
+				$owner = $ass["firstname"]." ".$ass["lastname"];
+				$retStr .= "<li class='list-member-item list-group-item'><a href='viewDog.php?id=".$dogid."'><p><span>NAME: </span> ".$fullname."<span>CLUB: </span> ".$club."<span>OWNER: </span> ".$owner."</p></a></li>";
+			}
+
+		}
+		if($retStr == "") { return "<p class='empty-page-message'>No dogs found...</p>"; }
+		else { return "<ul class='list-group event-group'>".$retStr."</ul>"; }
 	}
 
 	function getEventResults($eventId) {
@@ -198,7 +222,7 @@
 		$resultsTbl = $GLOBALS['resultsTbl'];
 		$competingTbl = $GLOBALS['competingTbl'];
 
-		$sql = "SELECT * FROM $competingTbl INNER JOIN $dogsTbl ON $competingTbl.dog_id = $dogsTbl.dog_id 
+		$sql = "SELECT * FROM $competingTbl INNER JOIN $dogsTbl ON $competingTbl.dog_id = $dogsTbl.dog_id
 											INNER JOIN $usersTbl ON $competingTbl.user_id = $usersTbl.user_id
 											INNER JOIN $eventsTbl ON $competingTbl.event_id = $eventsTbl.event_id
 											INNER JOIN $resultsTbl ON $competingTbl.dog_id = $resultsTbl.dog_id
@@ -210,10 +234,10 @@
 				$retStr .= $ass["fullname"]." ".$ass["callname"]." ".$ass["firstname"]." ".$ass["name"]." ".$ass["club"]." ".$ass["place"]."\n";
 			}
 
-		} 
+		}
 		if($retStr == "") { return "<p class='empty-page-message'>No results found...</p>"; }
 		else { return $retStr; }
-		
+
 	}
 
 	function getEventGalleries($eventId) {
@@ -223,28 +247,28 @@
 		$eventsTbl = $GLOBALS['eventsTbl'];
 		$galleriesTbl = $GLOBALS['galleriesTbl'];
 
-		$sql = "SELECT * FROM $eventsTbl	INNER JOIN $galleriesTbl ON $eventsTbl.event_id = $galleriesTbl.event_id 
+		$sql = "SELECT * FROM $eventsTbl	INNER JOIN $galleriesTbl ON $eventsTbl.event_id = $galleriesTbl.event_id
 											AND $eventsTbl.event_id = $eventId";
 
 		if($result = $GLOBALS["conn"]->query($sql)) {
 
-			while($ass = $result ->fetch_assoc()) {
+			while($ass = $result -> fetch_assoc()) {
 				$retStr .= '<a class="gallery-window col-xs-12 col-sm-6 col-md-4 col-lg-3" href="gallery.php?id='.$ass["gallery_id"].'">
-				            <div class="panel panel-default">
-				            	<div class="panel-heading"><p>'.$ass["name"].'</p></div>
-				                <div class="panel-body">
-				                    <p class="event-description">
-				                        '.$ass["description"].'
-				                    </p>
-				                </div>
-				            </div>
-				        </a>';
+					            <div class="panel panel-default">
+					            	<div class="panel-heading"><p>'.$ass["name"].'</p></div>
+					                <div class="panel-body">
+					                    <p class="event-description">
+					                        '.$ass["description"].'
+					                    </p>
+					                </div>
+					            </div>
+					        </a>';
 			}
 
-		} 
+		}
 		if($retStr == "") { return "<p class='empty-page-message'>No galleries found...</p>"; }
 		else { return $retStr; }
-		
+
 	}
 
 	function getMyDogsCompeting ($club) {
@@ -263,7 +287,6 @@
 
 		while ($stmt->fetch()) {
 			$retStr .= '<li class="list-group-item"><input type="checkbox" name="my-dogs" id="'.$dogid.'" value="'.$dogid.'"> <label for="'.$dogid.'">'.$name.'</label></li>';
-						
 		}
 
 		$stmt->close();
