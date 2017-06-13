@@ -84,13 +84,13 @@
 		$retStr = "";
 
 		while ($stmt->fetch()) {
-			$retStr .= "<li class='list-event-item list-group-item'><a href='event.php?id=".$eventid."'><p><span>NAME:</span> ".$name."</p><p><span>DESCRIPTION:</span> ".$desc."</p><p><span>DATE:</span> ".date("d M Y", strtotime($date))."</p></a></li>";
+			$retStr .= "<li class='list-custom-item list-group-item'><a href='event.php?id=".$eventid."'><p><span>NAME:</span> ".$name."</p><p><span>DESCRIPTION:</span> ".$desc."</p><p><span>DATE:</span> ".date("d M Y", strtotime($date))."</p></a></li>";
 		}
 
 		$stmt->close();
 
 		if($retStr == "") { return "<p class='empty-page-message'>No events found...</p>"; }
-		else { return $retStr = "<ul class='list-group event-group'>".$retStr."</ul>"; }
+		else { return $retStr = "<ul class='list-group'>".$retStr."</ul>"; }
 	}
 
 	function getGalleriesOfClub($clubVar) {
@@ -137,12 +137,12 @@
 		$retStr = "";
 
 		while ($stmt->fetch())
-			$retStr .= "<li class='list-member-item list-group-item'><a href='viewProfile.php?id=".$userid."'><p><span>NAME:</span> ".$firstname." ".$lastname."</p></a></li>";
+			$retStr .= "<li class='list-custom-item list-group-item'><a href='viewProfile.php?id=".$userid."'><p><span>NAME:</span> ".$firstname." ".$lastname."</p></a></li>";
 
 		$stmt->close();
 
 		if($retStr == "") { return "<p class='empty-page-message'>No members found...</p>"; }
-		else { return "<ul class='list-group event-group'>".$retStr."</ul>"; }
+		else { return "<ul class='list-group'>".$retStr."</ul>"; }
 
 	}
 
@@ -183,12 +183,12 @@
 				$dogid = $ass["dog_id"];
                 $fullname = $ass["fullname"];
                 $owner = $ass["firstname"]." ".$ass["lastname"];
-				$retStr .= "<li class='list-member-item list-group-item'><a href='viewDog.php?id=".$dogid."'><p><span>NAME: </span> ".$fullname." <span>OWNER: </span> ".$owner."</p></a></li>";
+				$retStr .= "<li class='list-custom-item list-group-item'><a href='viewDog.php?id=".$dogid."'><p><span>NAME: </span> ".$fullname." <span>OWNER: </span> ".$owner."</p></a></li>";
 			}
 
 		}
 		if($retStr == "") { return "<p class='empty-page-message'>No dogs found...</p>"; }
-		else { return $retStr = "<ul class='list-group event-group'>".$retStr."</ul>"; }
+		else { return $retStr = "<ul class='list-group'>".$retStr."</ul>"; }
 	}
 
 	function getAllDogs() {
@@ -207,12 +207,12 @@
 				$fullname = $ass["fullname"];
 				$club = $ass["club"];
 				$owner = $ass["firstname"]." ".$ass["lastname"];
-				$retStr .= "<li class='list-member-item list-group-item'><a href='viewDog.php?id=".$dogid."'><p><span>NAME: </span> ".$fullname."<span>CLUB: </span> ".$club."<span>OWNER: </span> ".$owner."</p></a></li>";
+				$retStr .= "<li class='list-custom-item list-group-item'><a href='viewDog.php?id=".$dogid."'><p><span>NAME: </span> ".$fullname."<span>CLUB: </span> ".$club."<span>OWNER: </span> ".$owner."</p></a></li>";
 			}
 
 		}
 		if($retStr == "") { return "<p class='empty-page-message'>No dogs found...</p>"; }
-		else { return "<ul class='list-group event-group'>".$retStr."</ul>"; }
+		else { return "<ul class='list-group'>".$retStr."</ul>"; }
 	}
 
 	function getEventResults($eventId) {
@@ -320,7 +320,8 @@
 		$retStr = "";
 
 		while ($stmt->fetch()) {
-			$retStr .= "<li class='list-member-item list-group-item'><a href='viewDog.php?id=".$dogid."'><p><span>NAME: </span> ".$name." <span>SEX: </span> ".$sex." <span>BREED: </span> ".$breed."</p></a></li>";
+
+			$retStr .= "<li class='list-custom-item list-group-item'><a href='viewDog.php?id=".$dogid."'><p><span>NAME: </span> ".$name." <span>SEX: </span> ".$sex." <span>BREED: </span> ".$breed."</p></a></li>";
 
 		}
 

@@ -37,7 +37,7 @@ body .banner-title h1 {
 
 body .main, body .club-main {
     background-color: #FFF;
-    font-family: 'Calibri', sans-serif;
+    font-family: 'Calibri', sans-serif !important;
     font-size: 18px;
     padding: 50px 20px 20px 20px;
 }
@@ -259,38 +259,42 @@ body .club-nav .navbar {
     margin: 0;
 }
 
-body .list-member-item a {
+body .list-group {
+  text-align: left;
+}
+body .list-custom-item a {
     text-decoration: none;
     color: #222;
     display: block;
     padding: 10px 15px;
 }
 
-body .list-member-item a:hover, body .list-member-item a:active {
+body .list-custom-item a:hover, body .list-custom-item a:active {
     transition: all ease 0.2s;
     color: #FFF;
     background-color: #F6CE95;
 }
 
-body .list-member-item a:hover span, body .list-member-item a:active span {
+body .list-custom-item a:hover span, body .list-custom-item a:active span {
     transition: all ease 0.2s;
     color: #F0AD4E;
 }
 
-body .list-member-item {
+body .list-custom-item {
     padding: 0;
 }
-body .list-member-item a p:nth-child(0) {
+body .list-custom-item a p:nth-child(0) {
     margin-left: 0;
 }
-body .list-member-item a p {
+body .list-custom-item a p {
     display: inline-block;
     margin-left: 10px;
 }
 
-body .list-member-item span {
+body .list-custom-item span {
     text-transform: uppercase;
     font-size: 14px;
+    font-family: 'Calibri', sans-serif;
     color: #AAA;
     margin-left: 10px;
 }
