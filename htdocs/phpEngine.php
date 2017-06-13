@@ -137,12 +137,12 @@
 		$retStr = "";
 
 		while ($stmt->fetch())
-			$retStr .= "<li class='list-member-item list-group-item'><a href='view-profile.php?id=".$userid."'><p><span>NAME:</span> ".$firstname." ".$lastname."</p></a></li>";
+			$retStr .= "<li class='list-member-item list-group-item'><a href='viewProfile.php?id=".$userid."'><p><span>NAME:</span> ".$firstname." ".$lastname."</p></a></li>";
 
 		$stmt->close();
 
 		if($retStr == "") { return "<p class='empty-page-message'>No members found...</p>"; }
-		else { return $retStr = "<ul class='list-group event-group'>".$retStr."</ul>"; }
+		else { return "<ul class='list-group event-group'>".$retStr."</ul>"; }
 
 	}
 
@@ -191,6 +191,30 @@
 		else { return $retStr = "<ul class='list-group event-group'>".$retStr."</ul>"; }
 	}
 
+	function getAllDogs() {
+
+		$retStr = "";
+
+		$dogsTbl = $GLOBALS['dogsTbl'];
+		$usersTbl = $GLOBALS['usersTbl'];
+
+		$sql = "SELECT * FROM $dogsTbl	INNER JOIN $usersTbl ON $dogsTbl.user_id = $usersTbl.user_id ORDER BY `fullname` ASC";
+
+		if($result = $GLOBALS["conn"]->query($sql)) {
+
+			while($ass = $result ->fetch_assoc()) {
+				$dogid = $ass["dog_id"];
+				$fullname = $ass["fullname"];
+				$club = $ass["club"];
+				$owner = $ass["firstname"]." ".$ass["lastname"];
+				$retStr .= "<li class='list-member-item list-group-item'><a href='viewDog.php?id=".$dogid."'><p><span>NAME: </span> ".$fullname."<span>CLUB: </span> ".$club."<span>OWNER: </span> ".$owner."</p></a></li>";
+			}
+
+		}
+		if($retStr == "") { return "<p class='empty-page-message'>No dogs found...</p>"; }
+		else { return "<ul class='list-group event-group'>".$retStr."</ul>"; }
+	}
+
 	function getEventResults($eventId) {
 
 		$retStr = "";
@@ -231,17 +255,17 @@
 
 		if($result = $GLOBALS["conn"]->query($sql)) {
 
-			while($ass = $result ->fetch_assoc()) {
+			while($ass = $result -> fetch_assoc()) {
 				$retStr .= '<a class="gallery-window col-xs-12 col-sm-6 col-md-4 col-lg-3" href="gallery.php?id='.$ass["gallery_id"].'">
-				            <div class="panel panel-default">
-				            	<div class="panel-heading"><p>'.$ass["name"].'</p></div>
-				                <div class="panel-body">
-				                    <p class="event-description">
-				                        '.$ass["description"].'
-				                    </p>
-				                </div>
-				            </div>
-				        </a>';
+					            <div class="panel panel-default">
+					            	<div class="panel-heading"><p>'.$ass["name"].'</p></div>
+					                <div class="panel-body">
+					                    <p class="event-description">
+					                        '.$ass["description"].'
+					                    </p>
+					                </div>
+					            </div>
+					        </a>';
 			}
 
 		}
@@ -266,7 +290,6 @@
 
 		while ($stmt->fetch()) {
 			$retStr .= '<li class="list-group-item"><input type="checkbox" name="my-dogs" id="'.$dogid.'" value="'.$dogid.'"> <label for="'.$dogid.'">'.$name.'</label></li>';
-
 		}
 
 		$stmt->close();
